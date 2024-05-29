@@ -16,6 +16,9 @@ public class ReplaceCharacters {
     }
 
     private static void replaceCharactersInFile(String inputFile, String outputFile) {
+        int vowelsCount = 0;
+        int consonantsCount = 0;
+
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFile));
              BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
 
@@ -24,13 +27,18 @@ public class ReplaceCharacters {
                 char charToWrite = (char) character;
                 if (VOWELS.indexOf(charToWrite) != -1) {
                     charToWrite = 'a';
+                    vowelsCount++;
                 } else if (CONSONANTS.indexOf(charToWrite) != -1) {
                     charToWrite = 'м';
+                    consonantsCount++;
                 }
                 writer.write(charToWrite);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        System.out.println("Количество гласных в новом файле: " + vowelsCount);
+        System.out.println("Количество согласных в новом файле: " + consonantsCount);
     }
 }
