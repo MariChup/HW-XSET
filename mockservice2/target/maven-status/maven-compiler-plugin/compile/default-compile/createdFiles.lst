@@ -1,0 +1,3 @@
+com\example\mockservice\model\PostRequestBody.class
+com\example\mockservice\controller\AppController.class
+com\example\mockservice\MockServiceApplication.class
